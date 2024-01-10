@@ -1,7 +1,7 @@
 from pdf2docx import Converter
 import tabula
 import PyPDF2
-
+from pdf2image import convert_from_path
 pdf_file="pdf-test.pdf"
 word_file = "word_test.docx"
 
@@ -28,6 +28,9 @@ def pdf_to_txt():
         file.write(text)
 
 
-
+#popplers to path!
 def pdf_to_images():
-    pass
+    images = convert_from_path(pdf_file)
+    for i, image in enumerate(images):
+        image.save(f"page_{i + 1}.jpg", "JPEG")
+
