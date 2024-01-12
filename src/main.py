@@ -38,8 +38,7 @@ def pdf_to_images():
         image.save(f"page_{i + 1}.jpg", "JPEG")
 
 
-
-FORMAT_LIST=("PDF","DOC","TXT","IMAGE")
+FORMAT_LIST = ("PDF", "DOC", "TXT", "IMAGE")
 
 class App(customtkinter.CTk):
     def __init__(self):
@@ -56,10 +55,10 @@ class App(customtkinter.CTk):
 
         self.title("Formats COnverter")
 
-        self.combofrom = customtkinter.CTkComboBox(self.master, values=FORMAT_LIST)
+        self.combofrom = customtkinter.CTkComboBox(self.master, values=FORMAT_LIST, state="readonly")
         self.combofrom.pack(pady=10)
 
-        self.comboto = customtkinter.CTkComboBox(self.master, values=FORMAT_LIST)
+        self.comboto = customtkinter.CTkComboBox(self.master, values=FORMAT_LIST, state="readonly")
         self.comboto.pack(pady=10)
 
         self.combofrom.bind("<<ComboboxSelected>>", self.on_select)
