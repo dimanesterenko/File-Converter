@@ -4,6 +4,7 @@ import PyPDF2
 from pdf2image import convert_from_path
 import customtkinter
 from tkinter import filedialog
+import os
 
 pdf_file="pdf-test.pdf"
 word_file = "word_test.docx"
@@ -73,6 +74,12 @@ class App(customtkinter.CTk):
         file_path = filedialog.askopenfilename(title="Choose a file", filetypes=[("All Files", "*.*")])
         if file_path:
             self.selected_file.set(file_path)
+            file_extension = self.get_file_extension(file_path)
+            print(f"Selected file extension: {file_extension}")
+
+    def get_file_extension(self, file_path):
+        _, file_extension = os.path.splitext(file_path)
+        return file_extension
 
     def on_select(self, event):
         selected_value = self.combo_var.get()
