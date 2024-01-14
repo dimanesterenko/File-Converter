@@ -39,7 +39,7 @@ def pdf_to_images():
         image.save(f"page_{i + 1}.jpg", "JPEG")
 
 
-FORMAT_LIST = ("PDF", "DOC", "TXT", "IMAGE")
+FORMAT_LIST = ("PDF", "DOCX", "TXT", "JPG")
 
 class App(customtkinter.CTk):
     def __init__(self):
@@ -75,7 +75,8 @@ class App(customtkinter.CTk):
         if file_path:
             self.selected_file.set(file_path)
             file_extension = self.get_file_extension(file_path)
-            print(f"Selected file extension: {file_extension}")
+            file_extension = (file_extension.replace(".", "")).upper()
+            self.combofrom.set(file_extension)
 
     def get_file_extension(self, file_path):
         _, file_extension = os.path.splitext(file_path)
@@ -84,6 +85,10 @@ class App(customtkinter.CTk):
     def on_select(self, event):
         selected_value = self.combo_var.get()
         print(f"Selected: {selected_value}")
+
+    def form_by_default(self):
+        pass
+
 
 app = App()
 app.mainloop()
