@@ -10,6 +10,20 @@ pdf_file="pdf-test.pdf"
 word_file = "word_test.docx"
 
 
+class FormatPDF:
+    def __init__(self,path, export_file):
+        self.path = path
+        self.export_file = export_file
+    def toDocx(self):
+        pass
+
+    def toTxt(self):
+        pass
+
+    def toJpg(self):
+        pass
+
+
 
 #converter method
 def pdf_to_word():
@@ -54,7 +68,7 @@ class App(customtkinter.CTk):
         self.file_label.pack(pady=10)
 
 
-        self.title("Formats COnverter")
+        self.title("Formats Converter")
 
         self.combofrom = customtkinter.CTkComboBox(self.master, values=FORMAT_LIST, state="readonly")
         self.combofrom.pack(pady=10)
