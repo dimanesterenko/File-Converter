@@ -15,7 +15,10 @@ class FormatPDF:
         self.path = path
         self.export_file = export_file
     def toDocx(self):
-        pass
+        dc = Converter(self.path)
+        dc.convert(self.export_file, start=0, end=None)
+        dc.close()
+
 
     def toTxt(self):
         pass
@@ -103,6 +106,7 @@ class App(customtkinter.CTk):
     def form_by_default(self):
         pass
 
+    def convert_files(self):
 
 app = App()
 app.mainloop()
