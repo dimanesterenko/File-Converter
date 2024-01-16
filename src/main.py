@@ -82,7 +82,7 @@ class App(customtkinter.CTk):
         self.combofrom.bind("<<ComboboxSelected>>", self.on_select)
         self.comboto.bind("<<ComboboxSelected>>", self.on_select)
 
-        self.button = customtkinter.CTkButton(self, text="Convert", command=self.button_callbck)
+        self.button = customtkinter.CTkButton(self, text="Convert", command=lambda :self.convert_files(self.selected_file, self.combofrom.get(),self.comboto.get()))
         self.button.pack(padx=20, pady=20)
     def button_callbck(self):
         print("button clicked")
@@ -106,7 +106,15 @@ class App(customtkinter.CTk):
     def form_by_default(self):
         pass
 
-    def convert_files(self):
+    def convert_files(self,selected_file,format_from, format_to):
+        match format_from:
+            case 'PDF':
+                result_file=0
+                file_pdf = FormatPDF(selected_file,result_file)
+                print("file_pdf was created")
+
+
+
 
 app = App()
 app.mainloop()
