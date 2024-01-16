@@ -9,11 +9,26 @@ import os
 pdf_file="pdf-test.pdf"
 word_file = "word_test.docx"
 
-
-class FormatPDF:
+class BasicFormat:
     def __init__(self,path, export_file):
         self.path = path
         self.export_file = export_file
+
+    def toPdf(self):
+        pass
+
+    def toTxt(self):
+        pass
+
+    def toDocx(self):
+        pass
+
+    def toJpg(self):
+        pass
+
+class FormatPDF(BasicFormat):
+    def __init__(self,path, export_file):
+        super().__init__(path,export_file)
     def toDocx(self):
         dc = Converter(self.path)
         dc.convert(self.export_file, start=0, end=None)
@@ -26,6 +41,28 @@ class FormatPDF:
     def toJpg(self):
         pass
 
+class FormatTXT(BasicFormat):
+    def __init__(self,path, export_file):
+        super().__init__(path,export_file)
+    def toPdf(self):
+        pass
+    def toDocx(self):
+        pass
+    def toJpg(self):
+        pass
+
+class FormatDocx(BasicFormat):
+    def __init__(self, path, export_file):
+        super().__init__(path, export_file)
+
+    def toPdf(self):
+        pass
+
+    def toTxt(self):
+        pass
+
+    def toDocx(self):
+        pass
 
 
 #converter method
